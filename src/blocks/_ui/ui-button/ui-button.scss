@@ -1,0 +1,52 @@
+.ui-button {
+  display: inline-block;
+  padding: 15px 45px;
+  font: 20px/1.2 $font;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  background: $orange;
+  border: 1px solid $orange;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  @include media-tablet-horizontal {
+    font-size: 18px;
+    padding: 15px 45px;
+  }
+  &:hover {
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgb(254 80 0 / 0.8);
+  }
+  &--link-next {
+    position: relative;
+    padding: 0 25px 0 0;
+    color: inherit;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 42%;
+      right: 10px;
+      transform: translateY(-50%) rotate(45deg);
+      width: 0.5em;
+      height: 0.5em;
+      border: 1px solid currentcolor;
+      border-bottom-width: 0;
+      border-left-width: 0;
+      transition: 0.3s;
+    }
+    &:hover {
+      box-shadow: none;
+      &::after {
+        transform: translateY(-50%) translateX(2px) rotate(45deg);
+      }
+    }
+    &[disabled] {
+      background: transparent;
+      color: $grey50;
+    }
+  }
+}

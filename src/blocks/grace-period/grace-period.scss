@@ -1,0 +1,567 @@
+.grace-period {
+  display: grid;
+  grid-template-rows: auto 45px auto auto auto;
+  grid-template-columns: 30px 1fr 1fr 1fr 1fr 345px;
+  grid-template-areas:
+    'fill title title title title titleFill'
+    'fill fillBraces fillBraces fillBraces fillBraces fillBraces'
+    'fill operation1 operation2 operation3 operation4 resultTitle'
+    'fill month1 month2 month3 month4 fillResult'
+    'fill pay1 pay2 pay3 pay4 payResult';
+  @include media-laptop {
+    grid-template-areas:
+      'title title'
+      'fillLine fillLine'
+      'month1 operation1'
+      'line1 line1'
+      'month2 operation2'
+      'month2 pay2'
+      'line2 line2'
+      'month3 operation3'
+      'month3 pay3'
+      'line3 line3'
+      'month4 operation4'
+      'month4 pay4'
+      'line4 line4'
+      'fill payResult'
+      'line5 line5'
+      'resultTitle resultTitle';
+    grid-template-rows: auto;
+    grid-template-columns: 70px 1fr;
+    grid-row-gap: 10px;
+  }
+  &__title {
+    grid-area: title;
+    margin-bottom: 15px;
+    font: 400 20px/1.3 $font;
+    text-align: center;
+    @include media-laptop {
+      font-size: 18px;
+    }
+    span {
+      font-weight: 700;
+      font-size: 24px;
+      color: $orange;
+      @include media-laptop {
+        font-size: inherit;
+      }
+    }
+  }
+  &__operation {
+    position: relative;
+    padding: 30px 12px 32px;
+    font: 400 16px/1.3 $font;
+    border-right: 1px solid $grey50;
+    @include media-laptop {
+      padding: 0 13px;
+      display: flex;
+      align-items: center;
+      border-right: 0;
+      font-size: 14px;
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 12px;
+      width: 28px;
+      height: 28px;
+      background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M46.9999 11.9999H8.99996C6.244 11.9999 4 14.2439 4 17V39C4 41.7559 6.244 43.9999 8.99996 43.9999H46.9999C49.7558 43.9999 51.9998 41.7559 51.9998 39V17C51.9999 14.2439 49.7559 11.9999 46.9999 11.9999ZM49.9999 38.9999C49.9999 40.6539 48.654 41.9999 46.9999 41.9999H8.99996C7.34593 41.9999 5.99996 40.6539 5.99996 38.9999V17C5.99996 15.346 7.34593 14 8.99996 14H46.9999C48.6539 14 49.9998 15.346 49.9998 17V38.9999H49.9999Z' fill='url(%23paint0_linear)'/%3E%3Cpath d='M50.9999 17.9999H5.00003C4.44803 17.9999 4 18.448 4 19V25C4 25.552 4.44803 26 5.00003 26H51C51.552 26 52 25.552 52 25V19C51.9999 18.448 51.5519 17.9999 50.9999 17.9999ZM49.9999 23.9999H5.99996V19.9999H49.9998V23.9999H49.9999Z' fill='url(%23paint1_linear)'/%3E%3Cpath d='M23 32.0001H11C10.448 32.0001 10 32.4482 10 33.0002C10 33.5522 10.448 34.0001 11 34.0001H23C23.552 34.0001 24 33.5521 24 33.0001C24 32.4481 23.552 32.0001 23 32.0001Z' fill='url(%23paint2_linear)'/%3E%3Cpath d='M23 35.9999H11C10.448 35.9999 10 36.448 10 37C10 37.552 10.448 38 11 38H23C23.552 38 24 37.552 24 37C23.9999 36.448 23.552 35.9999 23 35.9999Z' fill='url(%23paint3_linear)'/%3E%3Cpath d='M42.9999 29.9999H41C39.3459 29.9999 38 31.3459 38 32.9999V34.9999C38 36.6539 39.3459 37.9999 41 37.9999H42.9999C44.654 37.9999 45.9999 36.6539 45.9999 34.9999V32.9999C45.9999 31.346 44.654 29.9999 42.9999 29.9999ZM44 35C44 35.552 43.5519 36 42.9999 36H41C40.448 36 39.9999 35.552 39.9999 35V33C39.9999 32.448 40.448 32 41 32H42.9999C43.5519 32 44 32.448 44 33V35Z' fill='url(%23paint4_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='13.9' y1='43.9999' x2='51.7752' y2='26.2195' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='13.9' y1='26' x2='24.1124' y2='6.82319' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint2_linear' x1='12.8875' y1='34.0001' x2='15.2121' y2='28.9074' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint3_linear' x1='12.8875' y1='38' x2='15.2122' y2='32.9072' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint4_linear' x1='39.65' y1='37.9999' x2='46.6664' y2='35.804' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      @include media-laptop {
+        position: static;
+        flex-shrink: 0;
+        margin-right: 6px;
+      }
+    }
+    br {
+      @include media-laptop {
+        display: none;
+      }
+    }
+    &.operation1 {
+      grid-area: operation1;
+    }
+    &.operation2 {
+      grid-area: operation2;
+    }
+    &.operation3 {
+      grid-area: operation3;
+    }
+    &.operation4 {
+      grid-area: operation4;
+      border-right: 0;
+    }
+    &.operation5 {
+      grid-area: operation5;
+    }
+    &.operation6 {
+      grid-area: operation6;
+    }
+  }
+  &__month {
+    position: relative;
+    padding: 6px 12px;
+    font: 300 18px/1.5 $font;
+    border-right: 1px solid $grey50;
+    @include media-laptop {
+      padding: 0;
+      text-align: center;
+      border-right: 0;
+      font-size: 14px;
+    }
+    &--green {
+      &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        z-index: 1;
+        width: 10px;
+        height: 10px;
+        background: $green;
+        border-radius: 50%;
+        @include media-laptop {
+          display: none;
+        }
+      }
+    }
+    &--orange {
+      &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        z-index: 1;
+        width: 10px;
+        height: 10px;
+        background: $orange;
+        border-radius: 50%;
+        @include media-laptop {
+          display: none;
+        }
+      }
+    }
+    &.month1 {
+      grid-area: month1;
+    }
+    &.month2 {
+      grid-area: month2;
+    }
+    &.month3 {
+      grid-area: month3;
+    }
+    &.month4 {
+      grid-area: month4;
+    }
+    &.month5 {
+      grid-area: month5;
+    }
+    &.month6 {
+      grid-area: month6;
+    }
+    &.month7 {
+      grid-area: month7;
+    }
+  }
+  &__pay {
+    position: relative;
+    padding: 60px 15px 0;
+    font: 400 18px/1.4 $font;
+    text-align: right;
+    border-right: 1px solid $grey50;
+    @include media-laptop {
+      padding: 0 13px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      text-align: left;
+      border-right: 0;
+      font-size: 14px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      right: 15px;
+      width: 28px;
+      height: 28px;
+      background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.1986 24.4014C8.02286 24.4014 3 19.3786 3 13.2029C3 7.02714 8.02286 2 14.1986 2C20.3743 2 25.3971 7.02286 25.3971 13.1986C25.3971 19.3743 20.3743 24.4014 14.1986 24.4014ZM14.1986 2.80143C8.46428 2.80143 3.79714 7.46857 3.79714 13.2029C3.79714 18.9371 8.46428 23.6043 14.1986 23.6043C19.9329 23.6043 24.6 18.9371 24.6 13.2029C24.6 7.46429 19.9329 2.80143 14.1986 2.80143ZM14.1986 22.4C9.12428 22.4 4.99714 18.2729 4.99714 13.1986C4.99714 8.12429 9.12428 4.00143 14.1986 4.00143C19.2729 4.00143 23.4 8.12857 23.4 13.2029C23.4 18.2771 19.2729 22.4 14.1986 22.4ZM14.1986 4.79857C9.56571 4.79857 5.79857 8.56571 5.79857 13.1986C5.79857 17.8314 9.56571 21.5986 14.1986 21.5986C18.8314 21.5986 22.5986 17.8314 22.5986 13.1986C22.5986 8.56571 18.8314 4.79857 14.1986 4.79857ZM14.1986 26C8.02286 26 3 20.9771 3 14.8014C3 14.5486 3.01286 14.2871 3.03429 13.9743C3.05143 13.7643 3.22286 13.6014 3.43286 13.6014C3.64286 13.6014 3.81857 13.7643 3.83143 13.9743C4.22571 19.37 8.78143 23.6 14.1986 23.6C19.6157 23.6 24.1714 19.37 24.5657 13.97C24.5829 13.76 24.7543 13.5971 24.9643 13.5971C25.1743 13.5971 25.35 13.76 25.3629 13.97C25.3843 14.2829 25.3971 14.5486 25.3971 14.7971C25.3971 20.9771 20.3743 26 14.1986 26ZM4.83857 19.3271C6.52286 22.7986 10.0886 25.1986 14.1986 25.1986C18.3086 25.1986 21.8743 22.7986 23.5586 19.3271C21.5443 22.3871 18.0771 24.3971 14.1986 24.3971C10.32 24.3971 6.85286 22.3871 4.83857 19.3271ZM15.4971 14.2529H13.7657V15.1229H16.4314V15.8557H13.7657V17.1371H12.7757V15.8557H11.8629V15.1229H12.7757V14.2529H11.8629V13.3486H12.7757V9.60714H15.4971C16.1486 9.60714 16.7057 9.83857 17.1643 10.2971C17.6229 10.7471 17.8543 11.2957 17.8543 11.9429C17.8543 12.59 17.6229 13.1343 17.1643 13.5886C16.7014 14.03 16.1486 14.2529 15.4971 14.2529ZM15.4971 10.5457H13.7657V13.3529H15.4971C15.8614 13.3529 16.1829 13.2157 16.4529 12.9457C16.7229 12.6586 16.86 12.3243 16.86 11.9471C16.86 11.5529 16.7271 11.2229 16.4614 10.9571C16.1914 10.6786 15.87 10.5457 15.4971 10.5457Z' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='7.61941' y1='26' x2='27.4919' y2='20.1959' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23FE5000'/%3E%3Cstop offset='1' stop-color='%23FCA92A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+      @include media-laptop {
+        position: static;
+        flex-shrink: 0;
+        margin-right: 6px;
+      }
+    }
+    &.pay1 {
+      grid-area: pay1;
+    }
+    &.pay2 {
+      grid-area: pay2;
+    }
+    &.pay3 {
+      grid-area: pay3;
+    }
+    &.pay4 {
+      grid-area: pay4;
+    }
+    &.pay5 {
+      grid-area: pay5;
+    }
+    &.pay6 {
+      grid-area: pay6;
+    }
+    &.pay7 {
+      grid-area: pay7;
+    }
+    &.pay_result {
+      grid-area: payResult;
+      padding-top: 35px;
+      border-right: 0;
+      @include media-laptop {
+        display: block;
+        padding-top: 0;
+      }
+      &::before {
+        display: none;
+      }
+    }
+  }
+  &__date {
+    margin-bottom: 5px;
+    font: 400 16px/1.4 $font;
+    color: $blue;
+    @include media-laptop {
+      margin-right: 6px;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  }
+  &__result-title {
+    position: relative;
+    grid-area: resultTitle;
+    padding-bottom: 35px;
+    padding-left: 100px;
+    font: 400 20px/1.3 $font;
+    color: $orange;
+    @include media-laptop {
+      padding: 55px 0 0;
+      font-size: 16px;
+    }
+    &::before {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 72px;
+      height: 14px;
+      background-image: url("data:image/svg+xml,%3Csvg width='75' height='16' viewBox='0 0 75 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8H73M73 8L66 1M73 8L66 15' stroke='%23C8C8C8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      @include media-laptop {
+        top: 0;
+        left: 10px;
+        width: 40px;
+        background-size: auto 100%;
+        background-position: right;
+        transform: rotate(90deg);
+        transform-origin: left;
+      }
+    }
+  }
+  &__line {
+    &-orange {
+      grid-column: -1/1;
+      grid-row: 4;
+      background: linear-gradient(72.62deg, rgb(254 80 0 / 0.3) 15.71%, rgb(252 169 42 / 0.3) 89.05%);
+      @include media-laptop {
+        grid-column: 1;
+        grid-row: -2/2;
+      }
+    }
+    &-mob {
+      display: none;
+      @include media-laptop {
+        display: block;
+        height: 1px;
+        background: $grey50;
+      }
+      &.line1 {
+        grid-area: line1;
+      }
+      &.line2 {
+        grid-area: line2;
+      }
+      &.line3 {
+        grid-area: line3;
+      }
+      &.line4 {
+        grid-area: line4;
+      }
+      &.line5 {
+        grid-area: line5;
+      }
+    }
+  }
+  &__braces {
+    position: relative;
+    grid-column: 2/6;
+    grid-row: 2/4;
+    background: $greyBlueGradient;
+    border-radius: 30px 30px 0 0;
+    @include media-laptop {
+      display: none;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      transform: translateX(-50%) rotate(45deg);
+      background: $grey20;
+    }
+  }
+  &--big {
+    grid-template-columns: 62.3% 1fr;
+    grid-template-rows: unset;
+    grid-template-areas: unset;
+    gap: 30px;
+    @include media-laptop {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 25px;
+    }
+    .grace-period {
+      &__line-orange {
+        @include media-laptop {
+          grid-row: 2/-1;
+          grid-column: 1/2;
+          position: relative;
+          align-self: stretch;
+        }
+      }
+      &__text {
+        align-self: end;
+        padding: 35px;
+        background: #fff;
+        box-shadow: 10px 15px 60px rgb(0 0 0 / 0.08);
+        border-radius: 7px;
+        @include media-tablet {
+          padding: 30px 20px;
+        }
+        .ui-h6,
+        .ui-p2 {
+          &:not(:last-child) {
+            margin-bottom: 12px;
+            @include media-tablet {
+              margin-bottom: 10px;
+            }
+          }
+        }
+        &-fn {
+          margin-top: 40px;
+          @include media-tablet {
+            margin-top: 10px;
+          }
+        }
+      }
+      &__container {
+        display: grid;
+        grid-template-rows: auto 30px auto auto auto;
+        grid-template-columns: 15px repeat(7, 1fr) 15px;
+        grid-template-areas:
+          'fill title title title title title title title fillEnd'
+          'fill fillBraces fillBraces fillBraces fillBraces fillBraces fillBraces fillBraces fillEnd'
+          'fill operation1 operation2 operation3 operation4 operation5 operation6 fillOperation fillEnd'
+          'fill month1 month2 month3 month4 month5 month6 month7 fillEnd'
+          'pay1 pay1 pay2 pay3 pay4 pay5 pay6 pay7 fillEnd';
+        @include media-laptop {
+          grid-template-areas:
+            'title title'
+            'fillTop fillTop'
+            'month1 pay1'
+            'month1 operation1'
+            'month2 operation2'
+            'month2 pay2'
+            'month3 operation3'
+            'month3 pay3'
+            'month4 operation4'
+            'month4 pay4'
+            'month5 operation5'
+            'month5 pay5'
+            'month6 operation6'
+            'month6 pay6'
+            'month7 pay7';
+          grid-template-rows: auto 15px;
+          grid-auto-rows: auto 1fr;
+          grid-template-columns: auto 1fr;
+          align-items: start;
+        }
+      }
+      &__title {
+        @include media-tablet {
+          font-size: 14px;
+        }
+        span {
+          display: block;
+          @include media-tablet {
+            font-size: 16px;
+          }
+        }
+      }
+      &__braces {
+        grid-column: 2/-2;
+        background: linear-gradient(0deg, $grey20 0%, #edf3f7 100%);
+        border: 1px solid $grey50;
+        border-bottom-width: 0;
+        &::before {
+          background: #eef4f7;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: -6px;
+          left: 50%;
+          z-index: -1;
+          width: 15px;
+          height: 15px;
+          transform: translateX(-50%) rotate(45deg);
+          border: 1px solid $grey50;
+        }
+      }
+      &__operation {
+        padding: 32px 6px;
+        font-size: 12px;
+        @include media-laptop {
+          padding: 10px 0 5px 15px;
+          padding-top: 10px;
+          padding-left: 15px;
+          border-top: 1px solid $grey50;
+        }
+        &::before {
+          left: 6px;
+        }
+        &.operation1 {
+          @include media-laptop {
+            padding-top: 5px;
+            border-top: 0;
+          }
+        }
+        &.operation4 {
+          border-right: 1px solid $grey50;
+          @include media-laptop {
+            border-right: 0;
+          }
+        }
+        &.operation6 {
+          border-right: 0;
+        }
+      }
+      &__month {
+        padding: 8px 6px;
+        font-size: 16px;
+        @include media-laptop {
+          min-height: 92px;
+          border-top: 1px solid $grey50;
+        }
+        @include media-tablet {
+          font-size: 14px;
+        }
+        &::after {
+          @include media-laptop {
+            display: block;
+          }
+        }
+        &.month1 {
+          border-right: 0;
+          border-left: 1px solid $grey50;
+          @include media-laptop {
+            border-left: 0;
+          }
+          &::after {
+            right: unset;
+            left: -5px;
+            @include media-laptop {
+              right: -5px;
+              left: unset;
+            }
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            z-index: 1;
+            width: 10px;
+            height: 10px;
+            background: $orange;
+            border-radius: 50%;
+            @include media-laptop {
+              display: none;
+            }
+          }
+        }
+        &.month7 {
+          @include media-laptop {
+            min-height: 62px;
+            border-top: 0;
+          }
+        }
+      }
+      &__date {
+        margin-bottom: 0;
+        font-size: 14px;
+      }
+      &__pay {
+        padding-right: 6px;
+        padding-left: 6px;
+        font-size: 14px;
+        line-height: 1.2;
+        @include media-laptop {
+          padding-left: 15px;
+        }
+        &::before {
+          right: 6px;
+        }
+        br {
+          @include media-laptop {
+            display: none;
+          }
+        }
+        &.pay1 {
+          padding-left: 0;
+          padding-right: 20px;
+          border-right: 0;
+          text-align: start;
+          &::before {
+            content: none;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            width: 1px;
+            height: 55px;
+            background: $grey50;
+            @include media-laptop {
+              content: none;
+            }
+          }
+        }
+        &.pay1,
+        &.pay7 {
+          @include media-laptop {
+            padding-top: 10px;
+            padding-left: 15px;
+            border-top: 1px solid $grey50;
+          }
+        }
+      }
+    }
+  }
+}

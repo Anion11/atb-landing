@@ -1,0 +1,22 @@
+-
+  const headerMenu =[
+    { linkText: 'Преимущества', linkHref: '#advantage' },
+    { linkText: 'Как получить', linkHref: '#section-how-get' },
+    { linkText: 'Оформить карту', linkHref: '#section-form' },
+  ]
+header.header
+  .inner.inner--big
+    .header__wrapper
+      a.header__logo(href='/')
+        +icon('icon_logo')
+
+      if !hideHeaderMenu
+        ul.header__menu
+          each item in headerMenu
+            li.header__menu-li
+              a(href=item.linkHref)=item.linkText
+
+      .header__contacts
+        a.header__phone(href='tel:88007759444')
+          span 8 (800) 775-94-44
+        .header__descr Бесплатный звонок по России

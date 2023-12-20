@@ -1,0 +1,100 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle ='ATB'
+
+  -
+    const bannerSapid = [
+      {
+        img: 'img/star.gif',
+        txt: 'Акции',
+        content: [
+          {
+            img: 'img/svgs/icon_12_month.svg',
+            txt: 'Двенадцать месяцев',
+            link: '#',
+          },
+        ]
+      },
+    ]
+
+  -
+    const featuresItems =[
+      {
+        text: 'Сервисы бесконтактной оплаты',
+        logo: [
+          'svgs/samsung-pay-seeklogo.svg',
+          'svgs/mir-pay-logo.svg',
+          'svgs/sbp-logo.svg'
+        ]
+      },
+      {
+        type: 'icon',
+        icon: 'features_icon_self-employed.svg',
+        text: 'Подходит для&nbsp;самозанятых',
+      },
+      {
+        type: 'icon',
+        icon: 'features_icon_smart.svg',
+        text: 'Интернет и&nbsp;Мобильный Банк',
+      },
+    ]
+
+  -
+    const howGetItems =[
+      {
+        icon: 'img/svgs/how_get_icon1.svg',
+        title: 'Заявка',
+        descr: `Заполнение анкеты в среднем <br> занимает 5 минут`,
+      },
+      {
+        icon: 'img/svgs/how_get_icon2.svg',
+        title: 'Одобрение',
+        descr: `В течение 3-x минут придет вам <br> в смс`,
+        tooltip: 'Предварительное одобрение, окончательное решение при посещении банка.'
+      },
+      {
+        icon: 'img/svgs/how_get_icon3.svg',
+        title: 'Оформление и подписание договора',
+        descr: `В ближайшем отделении банка`,
+        tooltip: 'Необходим паспорт. Для получения более выгодных условий предоставьте документы, подтверждающие доход.'
+      },
+    ]
+
+block content
+  main
+    +banner('img/banner_univ-card.png', '--m-vertically, --univ-card')
+      block text
+        +banner__h1('Кредитная карта «Универсальная»').banner__h1--size-s
+        +banner__descr('Кэшбэк 1.5% на&nbsp;все и&nbsp;180&nbsp;дней без&nbsp;процентов').text-orange
+        +banner__btns
+          +ui-button('Оставить заявку')(href='#section-form')
+          +banner__text('На всё, что нужно сейчас').text-orange
+      block sapid
+        +banner-sapid-container(bannerSapid)
+
+    +section('--mt-s')#advantage
+      .inner
+        +features-clmns
+
+    +section
+      .inner
+        +section-head()
+          +ui-h2('Еще больше плюсов')
+        +features(featuresItems, '--3items')
+
+    +section()#section-how-get
+      .inner
+        +section-head().text-center
+          +ui-h2('Как получить карту')
+        +how-get(howGetItems)
+
+    +section
+      .inner
+        +section-head
+          +ui-h2('Как работает беспроцентный период')
+        +grace-period
+
+    +section()#section-form
+      .inner
+        p форма

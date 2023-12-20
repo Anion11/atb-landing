@@ -1,0 +1,58 @@
+.accordion {
+  &-item {
+    background: $grey20;
+    border-radius: 8px;
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: 15px;
+      @include media-tablet {
+        margin-bottom: 10px;
+      }
+    }
+    &__head {
+      position: relative;
+      padding: 17px 90px 17px 40px;
+      font: 400 18px/1.44 $font;
+      cursor: pointer;
+      @include media-tablet {
+        position: relative;
+        padding: 14px 55px 14px 20px;
+        font-size: 16px;
+        line-height: 1.37;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 45%;
+        right: 25px;
+        transform: translateY(-50%) rotate(-45deg) skew(5deg, 5deg);
+        width: 11px;
+        height: 11px;
+        border: solid;
+        border-width: 0 0 3px 3px;
+        transition: 0.3s;
+        @include media-tablet {
+          width: 9px;
+          height: 9px;
+          border-width: 0 0 2px 2px;
+        }
+      }
+      &--active {
+        font-weight: 700;
+        &::after {
+          transform: translateY(-50%) rotate(135deg) skew(5deg, 5deg);
+        }
+      }
+    }
+    &__main {
+      display: none;
+      padding: 10px 40px 30px;
+      font: 400 18px/1.44 $font;
+      @include media-tablet {
+        padding: 10px 20px 20px;
+        font-size: 16px;
+        line-height: 1.37;
+      }
+    }
+  }
+}

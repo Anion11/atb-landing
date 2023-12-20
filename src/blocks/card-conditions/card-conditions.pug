@@ -1,0 +1,33 @@
+mixin card-conditions(mods)
+  -
+    const baseName = 'card-conditions'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .card-conditions(class=allMods)&attributes(attributes)
+    .card-conditions__info
+      +ui-h3('Условия для получения карты «180 дней без %»', 'card-conditions, --xs, --bold')
+      .card-conditions__list
+        .card-conditions__item
+          .card-conditions__num
+            span 1
+          .card-conditions__text Для Клиентов, впервые оформляющих ТП&nbsp;&laquo;180 дней без&nbsp;%&raquo;, а&nbsp;также не&nbsp;имеющих &laquo;Универсальной&raquo; карты АТБ или&nbsp;закрывших её&nbsp;6&nbsp;месяцев назад и&nbsp;более.
+        .card-conditions__item
+          .card-conditions__num
+            span 2
+          .card-conditions__text Оставьте заявку на&nbsp;карту с&nbsp;кредитным лимитом свыше 300&nbsp;000&nbsp;₽.
+        .card-conditions__item
+          .card-conditions__num
+            span 3
+          .card-conditions__text Заключите договор в&nbsp;течении 30&nbsp;дней, при получении положительного решения, но&nbsp;не&nbsp;позднее
+            =' '
+            span.text-nowrap 13.10.2023
+            |  (включительно)
+    .card-conditions__img: img(src='img/card-condition_180days.png' alt='')
+    block

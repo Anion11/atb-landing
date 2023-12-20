@@ -1,0 +1,377 @@
+.banner {
+  position: relative;
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 750px;
+    padding-top: 235px;
+    @include media-laptop {
+      padding-top: 160px;
+    }
+    @include media-tablet-horizontal {
+      height: 940px;
+      padding-top: 170px;
+    }
+    @include media-tablet {
+      display: flex;
+      flex-direction: column;
+      height: 570px;
+      padding: 80px 0 20px;
+    }
+  }
+  &__h1 {
+    max-width: 620px;
+    font: 700 64px/1.2 $font;
+    @include media-tablet-horizontal {
+      margin: 0 auto;
+      font-size: 60px;
+      text-align: center;
+    }
+    @include media-tablet {
+      font-size: 36px;
+    }
+    @include media-mobile {
+      font-size: 31px;
+    }
+    &--size-s {
+      font-size: 60px;
+      @include media-tablet-horizontal {
+        font-size: 44px;
+      }
+      @include media-tablet {
+        font-size: 32px;
+      }
+    }
+  }
+  &__descr {
+    max-width: 580px;
+    margin-top: 25px;
+    font: 400 36px/1.22 $font;
+    @include media-tablet-horizontal {
+      max-width: unset;
+      margin-top: 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+    @include media-tablet {
+      margin-top: 15px;
+      font-size: 22px;
+    }
+  }
+  &__text {
+    max-width: 180px;
+    font: 24px/1.3 $font;
+    @include media-tablet-horizontal {
+      max-width: unset;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    @include media-tablet {
+      font-size: 20px;
+    }
+    &--size-xs {
+      font-size: 20px;
+      @include media-tablet-horizontal {
+        font-size: 18px;
+      }
+      @include media-tablet {
+        font-size: 15px;
+      }
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    margin-top: 60px;
+    @include media-tablet-horizontal {
+      flex-direction: column-reverse;
+      margin-top: 15px;
+      text-align: center;
+    }
+    @include media-tablet {
+      flex: auto;
+      justify-content: space-between;
+      margin-top: 5px;
+    }
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &::before {
+      @include media-tablet-horizontal {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 490px;
+        background: linear-gradient(180deg, #fff 84.29%, rgb(255 255 255 / 0) 100%);
+      }
+      @include media-tablet {
+        height: 310px;
+      }
+      @include media-mobile {
+        height: 330px;
+      }
+    }
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+      max-width: unset;
+      height: 100%;
+      @include media-tablet-horizontal {
+        right: 0;
+        left: auto;
+        height: 560px;
+        transform: none;
+        object-position: 35px 0;
+      }
+      @include media-tablet {
+        height: 370px;
+        object-position: 65px 15px;
+      }
+    }
+  }
+  &--m-vertically {
+    .banner {
+      &__wrapper {
+        @include media-tablet {
+          display: flex;
+          flex-direction: column-reverse;
+          padding-top: 75px;
+        }
+      }
+      &__content {
+        padding-top: 180px;
+        height: 640px;
+        @include media-tablet-horizontal {
+          padding-top: 145px;
+          height: 495px;
+        }
+        @include media-tablet {
+          padding-top: 0;
+          height: auto;
+        }
+      }
+      &__h1,
+      &__descr,
+      &__text {
+        @include media-tablet-horizontal {
+          text-align: start;
+        }
+      }
+      &__h1 {
+        @include media-tablet-horizontal {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+      &__text {
+        @include media-tablet-horizontal {
+          margin-bottom: 0;
+        }
+      }
+      &__btns {
+        @include media-tablet-horizontal {
+          flex-direction: row;
+          margin-top: 15px;
+          text-align: start;
+        }
+        @include media-tablet {
+          flex-direction: column-reverse;
+          align-items: stretch;
+          gap: 25px;
+        }
+      }
+      &__img {
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        max-width: 1220px;
+        overflow: hidden;
+        @include media-laptop {
+          max-width: calc(100vw - 30px);
+        }
+        @include media-tablet-horizontal {
+          padding-top: 75px;
+        }
+        @include media-tablet {
+          position: relative;
+          width: 100%;
+          max-width: calc(100vw - 20px);
+          height: 355px;
+          padding: 0;
+        }
+        &::before {
+          content: none;
+        }
+        img {
+          position: relative;
+          bottom: unset;
+          left: unset;
+          transform: none;
+          width: 720px;
+          height: auto;
+          max-height: 100%;
+          margin-right: -70px;
+          object-fit: contain;
+          @include media-tablet-horizontal {
+            right: unset;
+            width: 490px;
+            height: unset;
+            object-position: unset;
+          }
+          @include media-tablet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            max-width: unset;
+          }
+        }
+      }
+    }
+  }
+  &--rabbit-promo {
+    .banner {
+      &__content {
+        @include media-tablet-horizontal {
+          padding-top: 125px;
+        }
+        @include media-tablet {
+          padding-top: 80px;
+        }
+      }
+    }
+  }
+  &--180days {
+    .banner {
+      &__descr {
+        max-width: 470px;
+        margin-top: 20px;
+        @include media-tablet-horizontal {
+          max-width: 340px;
+          margin-top: 15px;
+          font-size: 26px;
+        }
+        @include media-tablet {
+          max-width: 260px;
+          margin-top: 12px;
+          font-size: 20px;
+        }
+      }
+      &__btns {
+        margin-top: 85px;
+        @include media-tablet-horizontal {
+          margin-top: 55px;
+          column-gap: 20px;
+        }
+        @include media-tablet {
+          margin-top: 10px;
+        }
+      }
+      &__text {
+        max-width: 195px;
+        @include media-tablet {
+          max-width: none;
+        }
+      }
+    }
+  }
+  &--univ-card {
+    background: $grey20;
+    @include media-tablet {
+      background: transparent;
+    }
+    .banner {
+      &__wrapper {
+        @include media-tablet {
+          background: $grey20;
+        }
+      }
+      &__content {
+        height: 700px;
+        padding-top: 200px;
+        padding-bottom: 80px;
+        @include media-tablet-horizontal {
+          height: 495px;
+          padding-top: 145px;
+          padding-bottom: 50px;
+        }
+        @include media-tablet {
+          height: auto;
+          padding-top: 0;
+          padding-bottom: 30px;
+        }
+      }
+      &__descr {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        @include media-tablet-horizontal {
+          max-width: 350px;
+          margin-top: 15px;
+        }
+        @include media-tablet {
+          max-width: unset;
+          margin-top: 12px;
+          font-size: 18px;
+        }
+      }
+      &__text {
+        @include media-tablet-horizontal {
+          max-width: 150px;
+        }
+        @include media-tablet {
+          max-width: unset;
+          font-size: 16px;
+        }
+      }
+      &__btns {
+        margin-top: auto;
+      }
+      &__img {
+        padding-top: 100px;
+        padding-bottom: 40px;
+        @include media-tablet-horizontal {
+          padding-top: 100px;
+          padding-bottom: 15px;
+        }
+        @include media-tablet {
+          padding: 0;
+        }
+        img {
+          @include media-laptop {
+            width: 600px;
+          }
+          @include media-tablet-horizontal {
+            width: 440px;
+            margin-right: -53px;
+          }
+          @include media-tablet {
+            width: 450px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}

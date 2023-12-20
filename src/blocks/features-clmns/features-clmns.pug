@@ -1,0 +1,87 @@
+mixin features-clmns(data, mods)
+  -
+    const baseName = 'features-clmns'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const defaultData =[
+      {
+        head: 'Бесплатные опции',
+        main: [
+          {
+            top: `до <span class="features-clmns__top-num">120</span> дней`,
+            bot: `беспроцентный период`,
+            botTooltip: 'Льготный период кредитования без уплаты % при своевременном внесении обязательного минимального ежемесячного платежа и полного погашения ссудной задолженности до окончания этого периода.',
+          },
+          {
+            top: `Снятие наличных`,
+            bot: `до 50 000 Р`,
+            botTooltip: 'в первые 15 дней; <br>далее - до 15 000 ₽ в месяц',
+          },
+          {
+            top: `Обслуживание карты`,
+            bot: `на весь срок действия`,
+          },
+        ]
+      },
+      {
+        head: 'Кэшбэк на всё',
+        headTooltip: 'За исключением категорий, указанных <a href="/the-most-important/measures-customer-support/mss-kody-isklyucheniy-iz-tranzaktsiy/" class="text-orange">здесь</a>',
+        main: [
+          {
+            top: `<span class="features-clmns__top-num">5</span> %`,
+            bot: `При&nbsp;сумме покупок от&nbsp;75&nbsp;000&nbsp;₽ в&nbsp;месяц`,
+          },
+          {
+            top: `<span class="features-clmns__top-num">1,5</span> %`,
+            bot: `При сумме покупок до 75&nbsp;000 ₽ в&nbsp;месяц`,
+          },
+          {
+            top: `<span class="features-clmns__top-num">4 000</span> ₽ / месяц`,
+            bot: `Максимальная сумма кэшбэка`,
+          },
+        ]
+      },
+      {
+        head: 'Дополнительные опции',
+        main: [
+          {
+            top: `От <span class="features-clmns__top-num">0%</span> годовых`,
+            bot: `процентная ставка`,
+          },
+          {
+            top: `Бесплатное пополнение`,
+          },
+          {
+            top: `Онлайн - оформление заявки`,
+          },
+        ]
+      },
+    ]
+
+    const featuresData = data ? data : defaultData
+
+  .features-clmns(class=allMods)&attributes(attributes)
+    each item in featuresData
+      .features-clmns__item
+        .features-clmns__head=item.head
+          if item.headTooltip
+            +ui-tooltip(item.headTooltip)
+        .features-clmns__main
+          each itemMain in item.main
+            .features-clmns__box
+              if itemMain.top
+                .features-clmns__top !{itemMain.top}
+                  if itemMain.topTooltip
+                    +ui-tooltip(itemMain.topTooltip)
+              if itemMain.bot
+                .features-clmns__bot !{itemMain.bot}
+                  if itemMain.botTooltip
+                    +ui-tooltip(itemMain.botTooltip)

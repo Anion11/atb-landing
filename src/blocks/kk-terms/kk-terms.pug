@@ -1,0 +1,17 @@
+mixin kk-terms(mods)
+  -
+    const baseName = 'kk-terms'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+    const text = 'А также начислим <span class="kk-terms__text-bold">5% кэшбэк за все покупки&nbsp;</span><span class="kk-terms__tooltip">?</span><br /> по карте «Универсальная» за указанный период'
+  .kk-terms(class=allMods)&attributes(attributes)
+    .kk-terms__icon
+      img(src='img/svgs/cash_terms_icon.svg', alt='')
+    .kk-terms__text !{text}
+    +ui-button('Подробнее', 'kk-terms')(href='#')

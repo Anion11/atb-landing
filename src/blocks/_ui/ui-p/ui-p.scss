@@ -1,0 +1,23 @@
+.ui-p1 {
+  font: 18px/1.4 $font;
+  @include media-tablet {
+    font-size: 16px;
+  }
+  &--light {
+    font-weight: 300;
+  }
+  &--bold {
+    font-weight: 700;
+  }
+}
+.ui-p2 {
+  font: 16px/1.4 $font;
+  @include media-tablet {
+    font-size: 14px;
+  }
+  &--mb10 {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

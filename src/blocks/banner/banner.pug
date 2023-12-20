@@ -1,0 +1,37 @@
+mixin banner(img, mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner(class=allMods)&attributes(attributes)
+    .banner__container
+      .banner__wrapper
+        .inner
+          .banner__content
+            block text
+        .banner__img
+          img(src=img alt='')
+      block sapid
+
+mixin banner__h1(text)
+  .banner__h1&attributes(attributes) !{text}
+    block
+
+mixin banner__descr(text)
+  .banner__descr&attributes(attributes) !{text}
+    block
+
+mixin banner__text(text)
+  .banner__text&attributes(attributes) !{text}
+    block
+
+mixin banner__btns
+  .banner__btns&attributes(attributes)
+    block

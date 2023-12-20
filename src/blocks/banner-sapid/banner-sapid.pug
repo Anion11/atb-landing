@@ -1,0 +1,39 @@
+mixin banner-sapid-container(sapidData, mods)
+  -
+    const baseName = 'banner-sapid-container'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner-sapid-container(class=allMods)&attributes(attributes)
+    each box in sapidData
+      .banner-sapid-box
+        +banner-sapid-box-btn()(href=box.link class=box.class class=box.content ? 'js-open-content' : '')
+          .banner-sapid-box-btn-img
+            img(src=box.img alt='')
+          .banner-sapid-box-btn-txt !{box.txt}
+        if box.content
+          .banner-sapid-box-main
+            .banner-sapid-box-main-btn_close
+            .banner-sapid-box-main-content
+              each item in box.content
+                a.banner-sapid-box-main-content-item(href=item.link target='_blank' class=item.mods)
+                  .banner-sapid-box-main-content-item-icon
+                    img(src=item.img alt='')
+                  .banner-sapid-box-main-content-item-txt !{item.txt}
+    block
+
+mixin banner-sapid-box-btn()
+
+  if (attributes.href)
+    a.banner-sapid-box-btn&attributes(attributes)
+      block
+
+  else
+    .banner-sapid-box-btn&attributes(attributes)
+      block

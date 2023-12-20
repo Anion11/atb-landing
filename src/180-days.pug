@@ -1,0 +1,350 @@
+extends layouts/layout
+
+block variables
+  -
+    const pageTitle ='ATB'
+    const hideHeaderMenu = true
+
+    const featuresClmns = [
+      {
+        head: 'Беспроцентный период',
+        main: [
+          {
+            top: `До 180 дней`,
+            bot: `длительность льготного периода возобновляется после погашения всей задолженности`,
+          },
+          {
+            top: `На всё:`,
+            bot: `покупки по карте, <br> снятие наличных <br> и переводы`,
+          },
+        ]
+      },
+      {
+        head: 'Кэшбэк',
+        main: [
+          {
+            top: `1,5% на все покупки`,
+            topTooltip: 'За исключением категорий, указанных <a class="text-orange" href="#">здесь</a>',
+            bot: `без&nbsp;ограничения по&nbsp;максимальной сумме выплаты`,
+          },
+          {
+            top: `До 50% у партнеров`,
+            bot: `в мобильном приложении`,
+          },
+        ]
+      },
+      {
+        head: 'Бесплатные опции',
+        main: [
+          {
+            top: `Наличные без комиссий`,
+            bot: `до&nbsp;30&nbsp;000&nbsp;₽ в&nbsp;месяц`,
+          },
+          {
+            top: `Обслуживание карты`,
+            bot: `на&nbsp;весь срок использования`
+          },
+          {
+            top: `Дополнительные карты`,
+            bot: `для&nbsp;членов семьи`
+          },
+        ]
+      },
+    ]
+
+    const howGetItems =[
+      { icon: 'img/svgs/how_get_step1.svg', title: 'Заявка', descr: 'Заполнение анкеты <br>в&nbsp;среднем занимает 5&nbsp;минут' },
+      { icon: 'img/svgs/how_get_step2.svg', title: 'Одобрение', descr: 'В&nbsp;течение 3&nbsp;минут придет <br> вам в&nbsp;смс', descrTooltips: [ {text: 'Предварительное одобрение, окончательное решение при посещении банка.'} ] },
+      { icon: 'img/svgs/how_get_step3.svg', title: 'Оформление <br>и подписание договора', descr: 'В&nbsp;ближайшем отделении банка', descrTooltips: [ {text: 'Необходим паспорт. Для&nbsp;получения более выгодных условий предоставьте документы, подтверждающие доход.'} ] },
+    ]
+
+    const tableItems = {
+      thead: [
+        {
+          th: [
+            { text: 'Дата' },
+            { text: 'За&nbspчто' },
+            { text: 'Сумма', mods: 'text-center' },
+            { text: 'Комиссия', mods: 'text-center' },
+            { text: 'Кэшбэк', mods: 'text-center' },
+            { text: 'Долг', mods: 'text-center' },
+          ],
+        },
+      ],
+      tbody: [
+        {
+          td: [
+            { text: 'Август', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '14&nbsp;августа' },
+            { text: '<b>Покупка по карте</b><div class="text-grey80 ui-table__mt-2">билеты в&nbsp;отпуск</div>' },
+            { text: '-50 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '' },
+            { text: '750 ₽', mods: 'text-center text-grey80 text-nowrap' },
+            { text: '-50 000 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Сентябрь', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '1&nbsp;сентября' },
+            { text: '<b>Перевод</b><div class="text-grey80 ui-table__mt-2">маме в&nbsp;другой город</div>' },
+            { text: '-10 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '1080 ₽', mods: 'text-center text-grey80 text-nowrap' },
+            { text: '' },
+            { text: '-61 080 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '2&nbsp;сентября' },
+            { text: '<b>Снятие наличных,</b><div class="text-grey80 ui-table__mt-2">чтобы взять с&nbsp;собой в&nbsp;отпуск</div>' },
+            { text: '-50 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '1570&nbsp;₽',
+              tooltip: `
+                590₽ (минимальная комиссия)
+                <br>+ 4,9% от&nbsp;суммы, превышающей 30&nbsp;000&nbsp;₽ в&nbsp;месяц (4,9%*20&nbsp;000&nbsp;₽ = 980&nbsp;₽)`,
+              mods: 'text-center text-grey80' },
+            { text: '' },
+            { text: '-112 650 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '14&nbsp;сентября' },
+            { text: '<b>Начисление кэшбэка</b>' },
+            { text: '+750 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-111 900 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '24&nbsp;сентября' },
+            { text: '<b>Оплата минимального платежа</b><div class="text-grey80 ui-table__mt-2">3%&nbsp;от&nbsp;суммы долга на&nbsp;1&nbsp;сентября</div>' },
+            { text: '+1 500 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-110 400 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Октябрь', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '8&nbsp;октября' },
+            { text: '<b>Покупка по карте</b><div class="text-grey80 ui-table__mt-2">бытовая техника</div>' },
+            { text: '-100 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '' },
+            { text: '1500 ₽', mods: 'text-center text-grey80 text-nowrap' },
+            { text: '-210 400 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '18&nbsp;октября' },
+            { text: '<b>Перевод</b><div class="text-grey80 ui-table__mt-2">маме в&nbsp;другой город</div>' },
+            { text: '-20 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '1570 ₽', mods: 'text-center text-grey80 text-nowrap' },
+            { text: '' },
+            { text: '-231 970 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '24&nbsp;октября' },
+            { text: '<b>Оплата минимального платежа</b><div class="text-grey80 ui-table__mt-2">3%&nbsp;от&nbsp;суммы долга на&nbsp;1&nbsp;октября</div>' },
+            { text: '+3 312 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-228 658 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '26&nbsp;октября' },
+            { text: '<b>Пополнение карты с&nbsp;зарплаты</b>' },
+            { text: '+80 000 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-148 658 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Ноябрь', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '15&nbsp;ноября' },
+            { text: '<b>Начисление кэшбэка</b>' },
+            { text: '+1500 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-147 158 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '24&nbsp;ноября' },
+            { text: '<b>Оплата минимального платежа</b><div class="text-grey80 ui-table__mt-2">3% от суммы долга на&nbsp;1&nbsp;ноября</div>' },
+            { text: '+4 459,74 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-142 698,26 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '26&nbsp;ноября' },
+            { text: '<b>Пополнение карты с&nbsp;зарплаты</b>' },
+            { text: '+70 000 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-72 698,26 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Декабрь', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '20&nbsp;декабря' },
+            { text: '<b>Покупки по&nbsp;карте</b><div class="text-grey80 ui-table__mt-2">к&nbsp;новому году</div>' },
+            { text: '-35 000 ₽', mods: 'text-center text-red text-nowrap' },
+            { text: '' },
+            { text: '525 ₽', mods: 'text-center text-grey80 text-nowrap' },
+            { text: '-107 698,26 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '24&nbsp;декабря' },
+            { text: '<b>Оплата минимального платежа</b><div class="text-grey80 ui-table__mt-2">3%&nbsp;от&nbsp;суммы долга на&nbsp;1&nbsp;декабря</div>' },
+            { text: '+2 180,9 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-105 517,3 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '26&nbsp;декабря' },
+            { text: '<b>Пополнение карты с&nbsp;зарплаты</b>' },
+            { text: '+50 000 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-55 517,3 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Январь', mods: 'text-bold', colspan: '6' },
+          ]
+        },
+        {
+          td: [
+            { text: '14&nbsp;января' },
+            { text: '<b>Начисление кэшбэка</b>' },
+            { text: '+525 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-54 992,3 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '24&nbsp;января' },
+            { text: '<b>Оплата минимального платежа</b><div class="text-grey80 ui-table__mt-2">3%&nbsp;от&nbsp;суммы долга на&nbsp;1&nbsp;января</div>' },
+            { text: '+1 665,5 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-53 326,8 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '26&nbsp;января' },
+            { text: '<b>Пополнение карты с&nbsp;зарплаты</b>' },
+            { text: '+50 000 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '-3 326,8 ₽', mods: 'text-center text-red text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: '29&nbsp;января' },
+            { text: '<b>Закрыть всю сумму долга,</b><div class="text-grey80 ui-table__mt-2">чтобы не&nbsp;начислили проценты</div>' },
+            { text: '+3 326,8 ₽', mods: 'text-center text-light-green text-nowrap' },
+            { text: '' },
+            { text: '' },
+            { text: '0 ₽', mods: 'text-center text-grey80 text-nowrap' },
+          ]
+        },
+        {
+          td: [
+            { text: 'Итого', mods: 'text-orange text-bold' },
+            { text: `<b>Сумма переплаты: 0&nbsp;₽</b>
+                <br> <b>Комиссия за&nbsp;переводы и&nbsp;снятие наличных</b> (при&nbsp;превышении суммы снятия 30&nbsp;тыс&nbsp;руб/мес): <b>4&nbsp;220&nbsp;₽</b>
+                <br> <b>Сумма кэшбэка: 2&nbsp;775&nbsp;₽</b>`,
+              mods: 'text-orange', colspan: '5' },
+          ]
+        },
+      ]
+    }
+
+block content
+  main.main.main--pb
+    +banner('img/banner_180-days.png', '--m-vertically, --180days')
+      block text
+        +banner__h1('Кредитная карта <br> «180 дней без %»').banner__h1--size-s
+        +banner__descr('Действует на всё: покупки, снятие наличных и&nbsp;переводы').text-orange
+        +banner__btns
+          +ui-button('Оставить заявку')(href='#section-form')
+          +banner__text('Забудь про проценты на&nbsp;полгода!').banner__text--size-xs.text-orange
+
+    +section('--mt-s')
+      .inner
+        +features-clmns(featuresClmns)
+
+    +section
+      .inner
+        +card-conditions
+
+    +section
+      .inner
+        +section-head().text-center
+          +ui-h2('Как получить карту')
+        +how-get(howGetItems)
+
+    +section
+      .inner
+        +section('--mt0')
+          +section-head.text-center
+            +ui-h2('Как работает беспроцентный период')
+          +grace-period('', 'big')
+        +section('--mt-s')
+          +accordion
+            +accordion-item('Пример использования всех возможностей карты')
+              +section-head('--max-w900')
+                +ui-h4('Мы&nbsp;понимаем, что разобраться с&nbsp;условиями нового инструмента бывает не&nbsp;просто, поэтому подготовили для вас пример с&nbsp;типовым сценарием использования')
+              +ui-table(tableItems, '--all-border, --v-al-top, --black-thead700, --tablet-scrollbar, --180days-6col')
+
+    +section()#section-form
+      .inner
+        p форма

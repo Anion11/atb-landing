@@ -1,0 +1,93 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 40px 0;
+  @include media-tablet-horizontal {
+    padding: 25px 0;
+  }
+  @include media-tablet {
+    padding: 20px 0;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    flex-shrink: 0;
+    width: 270px;
+    height: 60px;
+    @include media-laptop {
+      width: 200px;
+      height: 45px;
+    }
+    @include media-tablet {
+      width: 150px;
+      height: 34px;
+    }
+  }
+  &__menu {
+    display: flex;
+    @include media-tablet-horizontal {
+      display: none;
+    }
+    &-li {
+      font: 700 20px/1 $font;
+      @include media-laptop {
+        font-size: 18px;
+      }
+      &:not(:last-child) {
+        margin-right: 80px;
+        @include media-laptop {
+          margin-right: 50px;
+        }
+      }
+      a {
+        &:hover {
+          text-decoration: none;
+          color: $orange;
+        }
+      }
+    }
+  }
+  &__contacts {
+    text-align: right;
+    white-space: nowrap;
+    @include media-tablet {
+      align-self: center;
+    }
+  }
+  &__phone {
+    display: block;
+    font: 800 24px/1.3 $font;
+    @include media-laptop {
+      font-size: 20px;
+    }
+    @include media-tablet {
+      width: 25px;
+      height: 25px;
+      background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5 1.563c6.03 0 10.938 4.907 10.938 10.937 0 6.03-4.908 10.938-10.938 10.938S1.562 18.53 1.562 12.5 6.47 1.562 12.5 1.562zM12.5 0C5.597 0 0 5.597 0 12.5S5.597 25 12.5 25 25 19.403 25 12.5 19.403 0 12.5 0zm6.969 16.68l-.07-.215c-.165-.49-.708-1.004-1.209-1.14l-1.847-.506c-.5-.136-1.215.047-1.583.415l-.668.669A7.098 7.098 0 019.1 10.91l.668-.668c.367-.367.55-1.08.413-1.583L9.68 6.812c-.136-.501-.652-1.044-1.143-1.209l-.21-.07c-.493-.165-1.196.002-1.563.37l-1 1c-.179.177-.294.685-.294.687a11.827 11.827 0 003.458 8.484 11.816 11.816 0 008.455 3.456c.017 0 .54-.112.719-.29l1-1c.366-.366.531-1.07.368-1.56z' fill='%23333'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    span {
+      @include media-tablet {
+        display: none;
+      }
+    }
+  }
+  &__descr {
+    margin-top: 4px;
+    font: 13px/1.5 $font;
+    @include media-laptop {
+      margin-top: 0;
+      font-size: 12px;
+    }
+    @include media-tablet {
+      display: none;
+    }
+  }
+}

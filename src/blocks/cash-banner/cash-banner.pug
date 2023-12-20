@@ -1,0 +1,21 @@
+mixin cash-banner(mods)
+  -
+    const baseName = 'cash-banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .cash-banner(class=allMods)&attributes(attributes)
+    .inner
+      .cash-banner__img
+        img(src='img/cash_banner_img.gif', alt='')
+        .cash-banner__bg
+      .cash-banner__label Персональный подарок
+      .cash-banner__h1 Cнятие наличных с&nbsp;кредитной карты без&nbsp;комиссий!
+      .cash-banner__p1 Спасибо за активное использование карты «Универсальная». В благодарность мы решили помочь вам подготовиться к&nbsp;Новому году
+    block

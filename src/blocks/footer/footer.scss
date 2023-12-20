@@ -1,0 +1,35 @@
+.footer {
+  padding: 35px 0 15px;
+  font: 12px/1.1 $font;
+  color: #fff;
+  background: #333;
+  @include media-tablet {
+    padding: 20px 0;
+  }
+  &__line {
+    display: flex;
+    @include media-tablet {
+      display: block;
+    }
+    &:not(:first-child) {
+      margin-top: 30px;
+      @include media-tablet {
+        margin-top: 30px;
+      }
+    }
+  }
+  &__made {
+    margin-left: auto;
+    @include media-tablet {
+      margin-top: 10px;
+    }
+    a {
+      text-decoration: underline;
+      color: #fff;
+      &:hover {
+        text-decoration: none;
+        color: $orange;
+      }
+    }
+  }
+}

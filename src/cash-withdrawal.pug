@@ -1,0 +1,13 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle ='Акция КК Снятие наличных'
+  -const pageType = 'cash-withdrawal'
+  -const hideHeaderMenu = true
+
+block content
+  main.main.main--pb
+    +cash-banner
+    +section
+      .inner
+        +cash-terms

@@ -1,0 +1,30 @@
+mixin features(featuresItems, mods)
+  -
+    const baseName = 'features'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .features(class=allMods)&attributes(attributes)
+    each item in featuresItems
+      case item.type
+        when 'icon'
+          .features__item.features__item--icon
+            .features__icon
+              img(src=`img/svgs/${item.icon}` alt='')
+            .features__text !{item.text}
+
+        default
+          .features__item
+            .features__text !{item.text}
+            .features__logo
+              each itemLogo in item.logo
+                .features__logo-item
+                  img(src=`img/${itemLogo}` alt='')
+
+    block

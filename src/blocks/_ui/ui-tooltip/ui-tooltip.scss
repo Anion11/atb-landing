@@ -1,0 +1,30 @@
+.ui-tooltip {
+  flex-shrink: 0;
+  display: inline-flex;
+  vertical-align: sub;
+  margin-left: 5px;
+  &__btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  &--va-top {
+    vertical-align: top;
+  }
+  &--va-baseline {
+    vertical-align: baseline;
+  }
+}
+.tippy-box[data-theme~='ui-tooltip'] {
+  font: 14px/1.4 $font;
+  color: $black;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: $bigShadow;
+  .tippy {
+    &-content {
+      padding: 12px 20px;
+    }
+  }
+}

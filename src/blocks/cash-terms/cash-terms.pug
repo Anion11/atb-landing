@@ -1,0 +1,19 @@
+mixin cash-terms(mods)
+  -
+    const baseName = 'cash-terms'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .cash-terms(class=allMods)&attributes(attributes)
+    .cash-terms__icon
+      img(src='img/svgs/cash_terms_icon.svg', alt='')
+    .cash-terms__title Мы отменили для вас комиссию за&nbsp;снятие наличных в&nbsp;любых банкоматах без&nbsp;ограничения по&nbsp;сумме
+    .cash-terms__text Со дня получения sms <br>до&nbsp;31&nbsp;января 2023&nbsp;года
+    +ui-button('Полные условия акции',  'cash-terms, --link-next')(href='#')
+    block

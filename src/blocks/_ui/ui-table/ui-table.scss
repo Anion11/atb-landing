@@ -1,0 +1,93 @@
+.ui-table {
+  position: relative;
+  table {
+    width: 100%;
+    background: #fff;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th {
+      padding: 20px;
+      font: 400 20px/1.4 $font;
+      text-align: left;
+      color: $grey60;
+      @include media-tablet {
+        padding: 10px;
+        font-size: 14px;
+      }
+      &.ui-table__tr-title {
+        color: #fff;
+      }
+    }
+    td {
+      padding: 20px;
+      font: 400 18px/1.3 $font;
+      border: 1px solid #e9e9e9;
+      border-width: 1px 0;
+      @include media-tablet {
+        padding: 10px;
+        font-size: 14px;
+      }
+      &.ui-table__v-al-middle {
+        vertical-align: middle;
+      }
+    }
+  }
+  &__tr-title {
+    color: #fff;
+    background: $green;
+  }
+  &__bg-grey {
+    background: $grey30;
+  }
+  &--v-al-top {
+    table {
+      td,
+      th {
+        vertical-align: top;
+      }
+    }
+  }
+  &--all-border {
+    table {
+      th {
+        border: 1px solid #e9e9e9;
+      }
+      td {
+        border-width: 1px;
+      }
+    }
+  }
+  &--black-thead700 {
+    table {
+      th {
+        font-weight: 700;
+        color: inherit;
+      }
+    }
+  }
+  &--tablet-scrollbar {
+    @include media-laptop {
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #c0c0c0;
+    }
+  }
+  &--180days-6col {
+    table {
+      th {
+        font-size: 18px;
+        @include media-tablet {
+          font-size: 16px;
+        }
+      }
+      @include media-laptop {
+        min-width: 960px;
+      }
+    }
+  }
+}
