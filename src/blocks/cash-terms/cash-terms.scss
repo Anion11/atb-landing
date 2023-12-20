@@ -15,10 +15,18 @@
   &__text {
     margin-bottom: 25px;
     font: 18px/1.33 $font;
+    &-bold {
+      font-weight: 700;
+    }
   }
   &__ui-button {
     font-size: 14px;
     text-transform: uppercase;
     color: $orange;
+  }
+  &--new-year {
+    .cash-terms__ui-button {
+      color: white;
+    }
   }
 }

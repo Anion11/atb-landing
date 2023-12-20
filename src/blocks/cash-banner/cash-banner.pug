@@ -1,4 +1,4 @@
-mixin cash-banner(mods)
+mixin cash-banner(type, mods)
   -
     const baseName = 'cash-banner'
     let allMods = ''
@@ -9,13 +9,24 @@ mixin cash-banner(mods)
       }
       allMods = allMods.trim()
     }
-
-  .cash-banner(class=allMods)&attributes(attributes)
-    .inner
-      .cash-banner__img
-        img(src='img/cash_banner_img.gif', alt='')
-        .cash-banner__bg
-      .cash-banner__label Персональный подарок
-      .cash-banner__h1 Cнятие наличных с&nbsp;кредитной карты без&nbsp;комиссий!
-      .cash-banner__p1 Спасибо за активное использование карты «Универсальная». В благодарность мы решили помочь вам подготовиться к&nbsp;Новому году
-    block
+  case type
+    when 'years'
+      .cash-banner.cash-banner--new-year(class=allMods)&attributes(attributes)
+        .inner
+          .cash-banner__img
+            img(src='img/new-year-profit-banner.png', alt='')
+          .cash-banner__h1 Встречайте новый год с выгодой
+          .cash-banner__p1 Отменили для вас комиссию за снятие наличных по вашей карте «Универсальная» без ограничений по сумме
+          .cash-banner__label-wrapper
+            .cash-banner__label с 1 по 31 января 2024 года
+        block
+    default 
+      .cash-banner(class=allMods)&attributes(attributes)
+        .inner
+          .cash-banner__img
+            img(src='img/cash_banner_img.gif', alt='')
+            .cash-banner__bg
+          .cash-banner__label Персональный подарок
+          .cash-banner__h1 Cнятие наличных с&nbsp;кредитной карты без&nbsp;комиссий!
+          .cash-banner__p1 Спасибо за активное использование карты «Универсальная». В благодарность мы решили помочь вам подготовиться к&nbsp;Новому году
+        block

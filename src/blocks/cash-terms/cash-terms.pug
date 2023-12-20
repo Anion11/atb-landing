@@ -1,4 +1,4 @@
-mixin cash-terms(mods)
+mixin cash-terms(type, mods)
   -
     const baseName = 'cash-terms'
     let allMods = ''
@@ -9,11 +9,23 @@ mixin cash-terms(mods)
       }
       allMods = allMods.trim()
     }
-
-  .cash-terms(class=allMods)&attributes(attributes)
-    .cash-terms__icon
-      img(src='img/svgs/cash_terms_icon.svg', alt='')
-    .cash-terms__title Мы отменили для вас комиссию за&nbsp;снятие наличных в&nbsp;любых банкоматах без&nbsp;ограничения по&nbsp;сумме
-    .cash-terms__text Со дня получения sms <br>до&nbsp;31&nbsp;января 2023&nbsp;года
-    +ui-button('Полные условия акции',  'cash-terms, --link-next')(href='#')
-    block
+  case type
+    when 'years'
+      .cash-terms.cash-terms--new-year(class=allMods)&attributes(attributes)
+        .cash-terms__icon
+          img(src='img/svgs/cash_terms_icon.svg', alt='')
+        .cash-terms__text
+          span А также начислим <span class="cash-terms__text-bold">5% кэшбэк за все покупки</span>
+            +ui-tooltip('text')
+            br
+          span по карте «Универсальная» за указанный период
+        +ui-button('Подробнее', 'cash-terms')(href='#')
+        block
+    default   
+      .cash-terms(class=allMods)&attributes(attributes)
+        .cash-terms__icon
+          img(src='img/svgs/cash_terms_icon.svg', alt='')
+        .cash-terms__title Мы отменили для вас комиссию за&nbsp;снятие наличных в&nbsp;любых банкоматах без&nbsp;ограничения по&nbsp;сумме
+        .cash-terms__text Со дня получения sms <br>до&nbsp;31&nbsp;января 2023&nbsp;года
+        +ui-button('Полные условия акции',  'cash-terms, --link-next')(href='#')
+        block

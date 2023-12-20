@@ -71,4 +71,21 @@
   &__p1 {
     font: 18px/1.44 $font;
   }
+  &--new-year {
+    padding-top: 120px;
+    .cash-banner__img {
+      width: 380px;
+      height: 250px;
+    }
+    .cash-banner__label {
+      margin: 0 auto;
+    }
+    .cash-banner__label-wrapper {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 60px;
+      background: #fff3ee;
+      border-radius: 8px;
+    }
+  }
 }
