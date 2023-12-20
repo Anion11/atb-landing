@@ -13,9 +13,9 @@ mixin new-year-profit-terms(mods)
   .new-year-profit-terms(class=allMods)&attributes(attributes)
     .new-year-profit-terms__icon
       img(src='img/svgs/cash_terms_icon.svg', alt='')
-    .knew-year-profit-terms__text
+    .new-year-profit-terms__text
       span А также начислим <span class="new-year-profit-terms__text-bold">5% кэшбэк за все покупки</span>
-      +ui-tooltip('text')
-      br
+        +ui-tooltip('text')
+        br
       span по карте «Универсальная» за указанный период
     +ui-button('Подробнее', 'new-year-profit-terms')(href='#')
