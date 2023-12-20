@@ -1,0 +1,21 @@
+mixin new-year-profit-banner(mods)
+  -
+    const baseName = 'new-year-profit-banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .new-year-profit-banner(class=allMods)&attributes(attributes)
+    .inner
+      .new-year-profit-banner__img
+        img(src='img/new-year-profit-banner.png', alt='')
+      .new-year-profit-banner__h1 Встречайте новый год с выгодой
+      .new-year-profit-banner__p1 Отменили для вас комиссию за снятие наличных по вашей карте «Универсальная» без ограничений по сумме
+      .new-year-profit-banner__label-wrapper
+        .new-year-profit-banner__label с 1 по 31 января 2024 года
+    block

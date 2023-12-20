@@ -1,4 +1,4 @@
-.kk-banner {
+.new-year-profit-banner {
   padding-top: 120px;
   text-align: center;
   overflow: hidden;
@@ -10,34 +10,6 @@
     img {
       position: relative;
       z-index: 1;
-    }
-  }
-  &__bg {
-    position: absolute;
-    bottom: -15px;
-    left: -15px;
-    width: 152px;
-    height: 152px;
-    background: radial-gradient(50% 50% at 50% 50%, #fec7b6 0%, rgb(253 211 181 / 0) 100%);
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      opacity: 0.6;
-    }
-    &::before {
-      top: -32px;
-      right: -12px;
-      width: 248px;
-      height: 248px;
-      background: radial-gradient(50% 50% at 50% 50%, #fec7b6 0%, rgb(253 219 181 / 0) 100%);
-    }
-    &::after {
-      bottom: 0;
-      left: 25px;
-      width: 230px;
-      height: 230px;
-      background: radial-gradient(50% 50% at 50% 50%, #feddb6 0%, rgb(253 219 181 / 0) 100%);
     }
   }
   &__label-wrapper {

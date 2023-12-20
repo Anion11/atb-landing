@@ -1,6 +1,6 @@
-mixin kk-terms(mods)
+mixin new-year-profit-terms(mods)
   -
-    const baseName = 'kk-terms'
+    const baseName = 'new-year-profit-terms'
     let allMods = ''
     if (typeof mods !== 'undefined' && mods) {
       const modsList = mods.split(',')
@@ -10,12 +10,12 @@ mixin kk-terms(mods)
       allMods = allMods.trim()
     }
 
-  .kk-terms(class=allMods)&attributes(attributes)
-    .kk-terms__icon
+  .new-year-profit-terms(class=allMods)&attributes(attributes)
+    .new-year-profit-terms__icon
       img(src='img/svgs/cash_terms_icon.svg', alt='')
-    .kk-terms__text
-      span А также начислим <span class="kk-terms__text-bold">5% кэшбэк за все покупки</span>
+    .knew-year-profit-terms__text
+      span А также начислим <span class="new-year-profit-terms__text-bold">5% кэшбэк за все покупки</span>
       +ui-tooltip('text')
       br
       span по карте «Универсальная» за указанный период
-    +ui-button('Подробнее', 'kk-terms')(href='#')
+    +ui-button('Подробнее', 'new-year-profit-terms')(href='#')
