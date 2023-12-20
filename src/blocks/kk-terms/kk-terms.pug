@@ -9,9 +9,13 @@ mixin kk-terms(mods)
       }
       allMods = allMods.trim()
     }
-    const text = 'А также начислим <span class="kk-terms__text-bold">5% кэшбэк за все покупки&nbsp;</span><span class="kk-terms__tooltip">?</span><br /> по карте «Универсальная» за указанный период'
+
   .kk-terms(class=allMods)&attributes(attributes)
     .kk-terms__icon
       img(src='img/svgs/cash_terms_icon.svg', alt='')
-    .kk-terms__text !{text}
+    .kk-terms__text
+      span А также начислим <span class="kk-terms__text-bold">5% кэшбэк за все покупки</span>
+      +ui-tooltip('text')
+      br
+      span по карте «Универсальная» за указанный период
     +ui-button('Подробнее', 'kk-terms')(href='#')
