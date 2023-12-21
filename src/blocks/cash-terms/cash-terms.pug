@@ -14,11 +14,9 @@ mixin cash-terms(type, mods)
       .cash-terms.cash-terms--new-year(class=allMods)&attributes(attributes)
         .cash-terms__icon
           img(src='img/svgs/cash_terms_icon.svg', alt='')
-        .cash-terms__text
-          span А также начислим <span class="cash-terms__text-bold">5% кэшбэк за все покупки</span>
-            +ui-tooltip('text')
-            br
-          span по карте «Универсальная» за указанный период
+        .cash-terms__text А&nbsp;также начислим&nbsp;<span class="cash-terms__text-bold">5% кэшбэк за&nbsp;все покупки</span>
+          +ui-tooltip('text')
+          | по&nbsp;карте&nbsp;&laquo;Универсальная&raquo; за&nbsp;указанный период 
         +ui-button('Подробнее', 'cash-terms')(href='#')
         block
     default   

@@ -10,6 +10,13 @@
       position: relative;
       z-index: 1;
     }
+    &--size-l {
+      width: 100%;
+      max-width: 380px;
+      @include media-tablet {
+        max-width: 345px;
+      }
+    }
   }
   &__bg {
     position: absolute;
@@ -38,6 +45,13 @@
       height: 230px;
       background: radial-gradient(50% 50% at 50% 50%, #feddb6 0%, rgb(253 219 181 / 0) 100%);
     }
+  }
+  &__label-wrapper {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 60px;
+    background: #fff3ee;
+    border-radius: 8px;
   }
   &__label {
     position: relative;
@@ -73,19 +87,12 @@
   }
   &--new-year {
     padding-top: 120px;
-    .cash-banner__img {
-      width: 380px;
-      height: 250px;
-    }
     .cash-banner__label {
+      color: #FE5000;
+      text-transform: unset;
+      font: 400 16px/1.2 $font;
+      letter-spacing: 0em;
       margin: 0 auto;
-    }
-    .cash-banner__label-wrapper {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 13px 60px;
-      background: #fff3ee;
-      border-radius: 8px;
     }
   }
 }

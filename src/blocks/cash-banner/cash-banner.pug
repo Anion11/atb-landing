@@ -13,12 +13,12 @@ mixin cash-banner(type, mods)
     when 'years'
       .cash-banner.cash-banner--new-year(class=allMods)&attributes(attributes)
         .inner
-          .cash-banner__img
+          .cash-banner__img.cash-banner__img--size-l
             img(src='img/new-year-profit-banner.png', alt='')
-          .cash-banner__h1 Встречайте новый год с выгодой
-          .cash-banner__p1 Отменили для вас комиссию за снятие наличных по вашей карте «Универсальная» без ограничений по сумме
+          .cash-banner__h1 Встречайте новый год с&nbsp;выгодой
+          .cash-banner__p1 Отменили для вас комиссию за&nbsp;снятие наличных по&nbsp;вашей карте &laquo;Универсальная&raquo; без ограничений по&nbsp;сумме
           .cash-banner__label-wrapper
-            .cash-banner__label с 1 по 31 января 2024 года
+            .cash-banner__label с&nbsp;1&nbsp;по&nbsp;31&nbsp;января 2024 года
         block
     default 
       .cash-banner(class=allMods)&attributes(attributes)

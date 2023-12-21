@@ -13,8 +13,12 @@
     font: 700 22px/1.3 $font;
   }
   &__text {
-    margin-bottom: 25px;
+    max-width: 515px;
     font: 18px/1.33 $font;
+    margin: 0 auto 25px;
+    @include media-tablet {
+      max-width: 315px;
+    }
     &-bold {
       font-weight: 700;
     }
